@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import ModeSelection from './client/components/ModeSelection';
 
 function App() {
+  const [mode, setMode] = useState(null);
 
   useEffect(() => {
 
@@ -17,9 +19,19 @@ function App() {
 
   }, []);
 
+  const handleSelectMode = (selectedMode) => {
+    console.log("Đã chọn chế độ:", selectedMode);
+    setMode(selectedMode);
+    // Có thể thêm logic chuyển trang hoặc hiển thị component khác ở đây
+  };
+
   return (
     <div>
-      React kết nối backend
+      {!mode ? (
+        <ModeSelection onSelect={handleSelectMode} />
+      ) : (
+        <div style={{ padding: 20 }}>Bạn đã chọn chế độ: {mode}</div>
+      )}
     </div>
   );
 }
