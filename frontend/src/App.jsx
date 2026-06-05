@@ -6,7 +6,6 @@ import ModeSelection from './client/components/ModeSelection';
 import PersonalInfo from './client/components/PersonalInfo';
 import ResultPage from './client/components/ResultPage';
 import Test from './client/components/Test';
-import Test from './client/components/Test';
 import AuthModal from './client/components/AuthModel';
 function App() {
   const [mode, setMode] = useState(null);
@@ -14,6 +13,7 @@ function App() {
   const [personalData, setPersonalData] = useState(null); // State để lưu thông tin cá nhân
   const [testResult, setTestResult] = useState(null); // State để lưu kết quả test
   const [openAuth, setOpenAuth] = useState(false); // 2. State quản lý đóng/mở Popup (mặc định là đóng - false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Thêm state quản lý trạng thái đăng nhập
 
   
 
@@ -50,7 +50,14 @@ function App() {
   // Được gọi khi bài test tính cách hoàn thành
   const handleTestComplete = (answers) => {
     setTestResult(answers);
-    setStep('result'); // Chuyển sang trang kết quả
+    setOpenAuth(true); // Chỉ mở Popup đăng nhập, chưa cho phép xem kết quả
+  };
+
+  // Được gọi khi người dùng đăng nhập/đăng ký thành công từ AuthModal
+  const handleAuthSuccess = () => {
+    setIsLoggedIn(true);
+    setOpenAuth(false); // Đóng popup
+    setStep('result'); // Lúc này mới chính thức chuyển sang trang Kết quả
   };
 
   // Được gọi khi bấm nút Về trang chủ ở ResultPage
@@ -103,15 +110,13 @@ function App() {
   return (
     <div>
       {renderCurrentStep()}
-      {/* Phần điều hướng các chế độ test hiện tại của bạn */}
-      {!mode ? (
-        <ModeSelection onSelect={handleSelectMode} onBack={handleBack} />
-      ) : (
-        <Test onBack={handleBack} onComplete={handleTestComplete} />
-      )}
 
       {/* 4. Gọi Component AuthModal và truyền state vào để nó hoạt động */}
-      <AuthModal open={openAuth} handleClose={() => setOpenAuth(false)} />
+      <AuthModal 
+        open={openAuth} 
+        handleClose={() => setOpenAuth(false)} 
+        onSuccess={handleAuthSuccess}
+      />
     </div>
   );
     

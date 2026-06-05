@@ -96,7 +96,7 @@ function ModeSelection({ onSelect, onBack }) {
           }}
         >
           <Chip
-            label="BƯỚC 1 / 4"
+            label="BƯỚC 1 / 5"
             sx={{
               bgcolor: "#F5E5B9",
               color: "#D97706",
