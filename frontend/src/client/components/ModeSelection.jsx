@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Box,
   Button,
@@ -14,7 +16,7 @@ import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import TrackChangesOutlinedIcon from "@mui/icons-material/TrackChangesOutlined";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-function ModeSelection({ onSelect }) {
+function ModeSelection({ onSelect, onBack }) {
   return (
     <Box
       sx={{
@@ -42,6 +44,7 @@ function ModeSelection({ onSelect }) {
             color: "#667085",
             cursor: "pointer"
           }}
+          onClick={onBack}
         >
           <ArrowBackIcon />
           <Typography fontSize={17}>
@@ -266,7 +269,7 @@ function ModeSelection({ onSelect }) {
             <Button
               fullWidth
               endIcon={<ArrowForwardIcon />}
-              onClick={() => onSelect("targeted")}
+              onClick={() => onSelect && onSelect("targeted")}
               sx={{
                 bgcolor: "#F39200",
                 color: "#fff",
@@ -287,6 +290,8 @@ function ModeSelection({ onSelect }) {
           {/* DISCOVERY */}
           <Card
             sx={{
+              flex: 1,
+              mx: "auto",
               width: "100%",
               maxWidth: 430,
               p: 3.5,
@@ -378,6 +383,7 @@ function ModeSelection({ onSelect }) {
                   sx={{
                     width: 34,
                     height: 34,
+                    flexShrink: 0,
                     borderRadius: "50%",
                     bgcolor: "#F39C12",
                     color: "#fff",
@@ -406,6 +412,7 @@ function ModeSelection({ onSelect }) {
                   sx={{
                     width: 34,
                     height: 34,
+                    flexShrink: 0,
                     borderRadius: "50%",
                     bgcolor: "#7B8494",
                     color: "#fff",
@@ -433,7 +440,7 @@ function ModeSelection({ onSelect }) {
             <Button
               fullWidth
               endIcon={<ArrowForwardIcon />}
-              onClick={() => onSelect("discovery")}
+              onClick={() => onSelect && onSelect("discovery")}
               sx={{
                 bgcolor: "#1F2A44",
                 color: "#fff",
