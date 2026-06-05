@@ -24,7 +24,7 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
-export default function AuthModal({ open, handleClose }) {
+export default function AuthModal({ open, handleClose, onSuccess }) {
   const [tabValue, setTabValue] = useState(0); // 0: Đăng nhập, 1: Đăng ký
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -51,7 +51,7 @@ export default function AuthModal({ open, handleClose }) {
     if (tabValue === 0) {
       // Logic xử lý đăng nhập
       console.log("Xử lý Đăng nhập:", { email, password });
-      alert("Đăng nhập thành công! (Giả lập)");
+      alert("Đăng nhập thành công!");
     } else {
       // Logic xử lý đăng ký
       if (password !== confirmPassword) {
@@ -59,9 +59,13 @@ export default function AuthModal({ open, handleClose }) {
         return;
       }
       console.log("Xử lý Đăng ký:", { fullName, email, password, confirmPassword });
-      alert("Đăng ký tài khoản thành công! (Giả lập)"); // Sẽ thay bằng gọi API thật
+      alert("Đăng ký tài khoản thành công!"); // Sẽ thay bằng gọi API thật
     }
-    handleClose(); // Đóng popup sau khi hoàn thành
+    if (onSuccess) {
+      onSuccess(); // Chuyển sang trang Kết quả
+    } else if (handleClose) {
+      handleClose(); 
+    }
   };
 
   return (
@@ -82,7 +86,7 @@ export default function AuthModal({ open, handleClose }) {
     >
       {/* Nút Đóng Popup */}
       <IconButton
-        onClick={handleClose}
+        onClick={() => handleClose && handleClose()}
         sx={{
           position: "absolute",
           right: 12,
