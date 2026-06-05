@@ -14,7 +14,7 @@ import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import TrackChangesOutlinedIcon from "@mui/icons-material/TrackChangesOutlined";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-function ModeSelection({ onSelect }) {
+function ModeSelection({ onSelect, onBack }) {
   return (
     <Box
       sx={{
@@ -254,7 +254,7 @@ function ModeSelection({ onSelect }) {
             <Button
               fullWidth
               endIcon={<ArrowForwardIcon />}
-              onClick={() => onSelect("targeted")}
+              onClick={() => onSelect && onSelect("targeted")}
               sx={{
                 bgcolor: "#F39200",
                 color: "#fff",
@@ -275,6 +275,8 @@ function ModeSelection({ onSelect }) {
           {/* DISCOVERY */}
           <Card
             sx={{
+              flex: 1,
+              mx: "auto",
               width: "100%",
               maxWidth: 380,
               p: 3,
@@ -425,7 +427,7 @@ function ModeSelection({ onSelect }) {
             <Button
               fullWidth
               endIcon={<ArrowForwardIcon />}
-              onClick={() => onSelect("discovery")}
+              onClick={() => onSelect && onSelect("discovery")}
               sx={{
                 bgcolor: "#1F2A44",
                 color: "#fff",

@@ -13,45 +13,45 @@ import PsychologyIcon from "@mui/icons-material/Psychology";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-export default function Test({ onBack, onComplete }) {
+export default function PersonalityTest({ onBack, onComplete }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({}); // Lưu câu trả lời của tất cả 15 câu
 
   const questions = [
     {
-      title: "Khi gặp một vấn đề phức tạp, bạn thường làm gì đầu tiên?",
+      title: "Khi gặp một thiết bị công nghệ mới (điện thoại mới, phần mềm mới), bạn thường làm gì?",
       answers: [
-        { key: "A", text: "Phân tích từng bước theo logic và dữ liệu" },
-        { key: "B", text: "Tìm kiếm giải pháp sáng tạo, không theo lối mòn" },
-        { key: "C", text: "Tham khảo ý kiến và lắng nghe người khác" },
-        { key: "D", text: "Lập kế hoạch chi tiết và phân bổ nguồn lực" },
+        { key: "A", text: "Tự mày mò, khám phá hết tất cả các tính năng bên trong." },
+        { key: "B", text: "Đọc kỹ hướng dẫn sử dụng trước khi dùng." },
+        { key: "C", text: "Chỉ dùng những tính năng cơ bản phục vụ nhu cầu, không quan tâm gì thêm." },
+        { key: "D", text: "Nhờ người khác cài đặt và hướng dẫn sẵn cho nhanh." },
       ],
     },
     {
-      title: "Khi làm việc nhóm, vai trò của bạn thường là gì?",
+      title: "Bạn đối mặt với những bài toán logic hoặc câu đố trí tuệ như thế nào?",
       answers: [
-        { key: "A", text: "Người định hướng và phân tích vấn đề" },
-        { key: "B", text: "Người đưa ra nhiều ý tưởng đột phá" },
-        { key: "C", text: "Người gắn kết và hỗ trợ các thành viên" },
-        { key: "D", text: "Người sắp xếp công việc và đôn đốc tiến độ" },
+        { key: "A", text: "Rất hào hứng và quyết tâm tìm ra lời giải bằng mọi giá.  " },
+        { key: "B", text: "Thấy khá thú vị và sẽ thử giải nếu có thời gian trống." },
+        { key: "C", text: "Không thích lắm, thấy chúng khá đau đầu và mất thời gian." },
+        { key: "D", text: "Bỏ qua ngay lập tức vì không thích những thứ phức tạp." },
       ],
     },
     {
-      title: "Môi trường làm việc lý tưởng của bạn là gì?",
+      title: "Khi một phần mềm hoặc ứng dụng bạn đang dùng hàng ngày bị lỗi, phản ứng của bạn là gì?",
       answers: [
-        { key: "A", text: "Độc lập, yên tĩnh, ưu tiên sự tập trung cao độ" },
-        { key: "B", text: "Năng động, linh hoạt, khuyến khích sáng tạo" },
-        { key: "C", text: "Thân thiện, đề cao tinh thần đồng đội" },
-        { key: "D", text: "Quy củ, rõ ràng, có quy trình chuẩn mực" },
+        { key: "A", text: "Thử tìm hiểu xem tại sao nó lỗi và tìm cách tự khắc phục hoặc cài lại." },
+        { key: "B", text: "Khó chịu nhưng sẽ kiên nhẫn đợi nhà phát hành cập nhật bản sửa lỗi." },
+        { key: "C", text: "Chuyển sang dùng một ứng dụng khác thay thế ngay lập tức." },
+        { key: "D", text: "Cảm thấy bất lực và không dùng thiết bị đó nữa." },
       ],
     },
     {
-      title: "Bạn thích xử lý loại thông tin nào nhất?",
+      title: "Bạn tự đánh giá khả năng tự học của mình như thế nào?",
       answers: [
-        { key: "A", text: "Con số, dữ liệu và biểu đồ" },
-        { key: "B", text: "Hình ảnh, màu sắc và thiết kế" },
-        { key: "C", text: "Cảm xúc, câu chuyện và nhu cầu con người" },
-        { key: "D", text: "Văn bản, quy trình và danh sách chi tiết" },
+        { key: "A", text: "Rất tốt, có thể tự tìm tài liệu trên mạng, xem video để học một kỹ năng mới hoàn toàn." },
+        { key: "B", text: "Khá ổn, nhưng cần có người định hướng hoặc lộ trình rõ ràng để đi theo." },
+        { key: "C", text: "Thích có thầy cô giảng dạy trực tiếp hơn là tự bơi một mình." },
+        { key: "D", text: "Thấy việc tự học rất nhàm chán và khó tập trung." },
       ],
     },
     {
@@ -64,30 +64,30 @@ export default function Test({ onBack, onComplete }) {
       ],
     },
     {
-      title: "Điều gì tạo động lực lớn nhất cho bạn khi làm việc?",
+      title: "Bạn có thể ngồi làm việc liên tục trước màn hình máy tính trong bao lâu nếu đó là công việc yêu thích?",
       answers: [
-        { key: "A", text: "Khám phá ra kiến thức và sự thật mới" },
-        { key: "B", text: "Tạo ra một sản phẩm mang dấu ấn cá nhân" },
-        { key: "C", text: "Giúp đỡ và mang lại giá trị cho cộng đồng" },
-        { key: "D", text: "Hoàn thành mục tiêu đúng hạn với hiệu suất cao" },
+        { key: "A", text: "Có thể ngồi từ 6 - 8 tiếng (hoặc hơn) mà không thấy chán, miễn là tiến độ tốt." },
+        { key: "B", text: "Khoảng 3 - 4 tiếng, sau đó cần đứng dậy đi lại và nghỉ ngơi." },
+        { key: "C", text: "Khoảng 1 - 2 tiếng là bắt đầu thấy mỏi mắt, đau lưng và muốn làm việc khác." },
+        { key: "D", text: "Không thể ngồi quá 1 tiếng, thích công việc bay nhảy ngoài trời hơn." },
       ],
     },
     {
-      title: "Bạn phản ứng thế nào khi gặp áp lực công việc lớn?",
+      title: "Khả năng đọc hiểu tiếng Anh của bạn ở mức độ nào?",
       answers: [
-        { key: "A", text: "Tập trung cao độ để bóc tách vấn đề" },
-        { key: "B", text: "Tìm không gian riêng để tái tạo cảm hứng" },
-        { key: "C", text: "Chia sẻ với đồng nghiệp để tìm sự đồng cảm" },
-        { key: "D", text: "Lập checklist ưu tiên để giải quyết từng việc" },
+        { key: "A", text: "Tốt, có thể đọc hiểu các tài liệu kỹ thuật, bài báo chuyên ngành mà không gặp nhiều khó khăn." },
+        { key: "B", text: "Ở mức cơ bản, vừa đọc vừa dùng công cụ dịch vẫn hiểu được." },
+        { key: "C", text: "Khá yếu, chỉ nhận biết được vài từ thông dụng và rất ngại đọc văn bản dài." },
+        { key: "D", text: "Hoàn toàn không biết gì hoặc cực kỳ ghét học tiếng Anh." },
       ],
     },
     {
-      title: "Bạn thích cách tiếp thu kiến thức mới nào nhất?",
+      title: "Khi phải thực hiện một công việc đòi hỏi sự tỉ mỉ và lặp đi lặp lại, bạn cảm thấy thế nào?",
       answers: [
-        { key: "A", text: "Tự nghiên cứu tài liệu và phân tích chuyên sâu" },
-        { key: "B", text: "Thử nghiệm thực tế và học qua sai lầm" },
-        { key: "C", text: "Thảo luận nhóm và nghe chia sẻ từ người khác" },
-        { key: "D", text: "Học theo từng bước hướng dẫn cụ thể" },
+        { key: "A", text: "Kiên nhẫn thực hiện và luôn cố gắng tìm cách tối ưu hóa để lần sau làm nhanh hơn." },
+        { key: "B", text: "Chấp nhận làm vì đó là nhiệm vụ, cố gắng làm cho xong." },
+        { key: "C", text: "Cảm thấy rất nhanh chán và dễ mất tập trung, dẫn đến sai sót." },
+        { key: "D", text: "Hoàn toàn ghét bỏ và sẽ tìm cách đùn đẩy công việc đó cho người khác." },
       ],
     },
     {
@@ -167,8 +167,12 @@ export default function Test({ onBack, onComplete }) {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      // Hoàn thành bài test, gọi callback onComplete và truyền kết quả
-      onComplete(answers);
+      console.log("Kết quả bài test:", answers);
+      alert("Chúc mừng bạn đã hoàn thành bài test!");
+      // Ở đây bạn có thể gọi API để gửi kết quả lên Backend
+      if (onComplete) {
+        onComplete(answers);
+      }
     }
   };
 
@@ -235,30 +239,34 @@ export default function Test({ onBack, onComplete }) {
                 fontWeight={600}
                 fontSize={14}
               >
-                Bài test tính cách
+                Đánh giá: IT
               </Typography>
             </Stack>
+          </Stack>
 
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <Box sx={{ flexGrow: 1 }}>
+              <LinearProgress
+                variant="determinate"
+                value={progress}
+                sx={{
+                  height: 6,
+                  borderRadius: 10,
+                  backgroundColor: "#f1f1f1",
+                  "& .MuiLinearProgress-bar": {
+                    backgroundColor: "#f59e0b",
+                  },
+                }}
+              />
+            </Box>
             <Typography
               color="text.secondary"
               fontSize={14}
+              fontWeight={600}
             >
               {currentQuestionIndex + 1} / {questions.length}
             </Typography>
           </Stack>
-
-          <LinearProgress
-            variant="determinate"
-            value={progress}
-            sx={{
-              height: 6,
-              borderRadius: 10,
-              backgroundColor: "#f1f1f1",
-              "& .MuiLinearProgress-bar": {
-                backgroundColor: "#f59e0b",
-              },
-            }}
-          />
         </Box>
       </Box>
 
@@ -334,14 +342,15 @@ export default function Test({ onBack, onComplete }) {
                       width: 28,
                       height: 28,
                       borderRadius: "50%",
-                      border:
-                        "1px solid #cbd5e1",
+                      border: selected === item.key ? "1px solid #f59e0b" : "1px solid #cbd5e1",
+                      bgcolor: selected === item.key ? "#f59e0b" : "transparent",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontWeight: 600,
                       fontSize: 13,
-                      color: "#64748b",
+                      color: selected === item.key ? "#fff" : "#64748b",
+                      transition: ".2s",
                     }}
                   >
                     {item.key}
@@ -399,13 +408,14 @@ export default function Test({ onBack, onComplete }) {
 
       {/* NOTE */}
       <Typography
-        textAlign="center"
-        color="text.secondary"
-        fontSize={12}
-        mt={2}
-      >
-        Không có câu trả lời đúng hay sai —
-        hãy chọn điều phù hợp nhất với bạn
+                sx={{
+                  mt: 4,
+                  textAlign: "center",
+                  color: "#98A2B3",
+                  fontSize: 16
+                }}
+              >
+                Không có câu trả lời đúng hay sai — hãy chọn điều phù hợp nhất với bạn
       </Typography>
     </Box>
   );

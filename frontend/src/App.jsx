@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
@@ -5,15 +6,18 @@ import ModeSelection from './client/components/ModeSelection';
 import PersonalInfo from './client/components/PersonalInfo';
 import ResultPage from './client/components/ResultPage';
 import Test from './client/components/Test';
-
+import Test from './client/components/Test';
+import AuthModal from './client/components/AuthModel';
 function App() {
   const [mode, setMode] = useState(null);
   const [step, setStep] = useState('modeSelection'); // State để quản lý các bước
   const [personalData, setPersonalData] = useState(null); // State để lưu thông tin cá nhân
   const [testResult, setTestResult] = useState(null); // State để lưu kết quả test
+  const [openAuth, setOpenAuth] = useState(false); // 2. State quản lý đóng/mở Popup (mặc định là đóng - false)
+
+  
 
   useEffect(() => {
-
     axios.get("http://localhost:3000/api/test")
       .then(res => {
         console.log(res.data);
@@ -21,7 +25,6 @@ function App() {
       .catch(err => {
         console.log(err);
       });
-
   }, []);
 
   // Được gọi từ ModeSelection, set chế độ và chuyển sang bước tiếp theo
@@ -100,10 +103,18 @@ function App() {
   return (
     <div>
       {renderCurrentStep()}
+      {/* Phần điều hướng các chế độ test hiện tại của bạn */}
+      {!mode ? (
+        <ModeSelection onSelect={handleSelectMode} onBack={handleBack} />
+      ) : (
+        <Test onBack={handleBack} onComplete={handleTestComplete} />
+      )}
+
+      {/* 4. Gọi Component AuthModal và truyền state vào để nó hoạt động */}
+      <AuthModal open={openAuth} handleClose={() => setOpenAuth(false)} />
     </div>
   );
     
 }
 
-
-export default App
+export default App;
