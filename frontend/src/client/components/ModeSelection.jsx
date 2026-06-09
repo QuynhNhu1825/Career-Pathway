@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Box,
   Button,
@@ -10,7 +9,6 @@ import {
   Typography
 } from "@mui/material";
 
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import TrackChangesOutlinedIcon from "@mui/icons-material/TrackChangesOutlined";
@@ -27,7 +25,7 @@ function ModeSelection({ onSelect, onBack }) {
       {/* HEADER */}
       <Box
         sx={{
-          height: 86,
+          height: 70,
           bgcolor: "#fff",
           borderBottom: "1px solid #ECECEC",
           px: 5,
@@ -36,21 +34,7 @@ function ModeSelection({ onSelect, onBack }) {
           justifyContent: "space-between"
         }}
       >
-        <Stack
-          direction="row"
-          spacing={1}
-          alignItems="center"
-          sx={{
-            color: "#667085",
-            cursor: "pointer"
-          }}
-          onClick={onBack}
-        >
-          <ArrowBackIcon />
-          <Typography fontSize={17}>
-            Quay lại
-          </Typography>
-        </Stack>
+        <Box width={80} /> {/* Placeholder to keep title centered */}
 
         <Stack
           direction="row"
@@ -59,8 +43,8 @@ function ModeSelection({ onSelect, onBack }) {
         >
           <Box
             sx={{
-              width: 42,
-              height: 42,
+              width: 36,
+              height: 36,
               borderRadius: "14px",
               bgcolor: "#F39C12",
               color: "#fff",
@@ -75,7 +59,7 @@ function ModeSelection({ onSelect, onBack }) {
 
           <Typography
             sx={{
-              fontSize: 26,
+              fontSize: 22,
               fontWeight: 700,
               color: "#071C3B"
             }}
@@ -112,14 +96,14 @@ function ModeSelection({ onSelect, onBack }) {
           }}
         >
           <Chip
-            label="BƯỚC 1 / 4"
+            label="BƯỚC 1 / 5"
             sx={{
               bgcolor: "#F5E5B9",
               color: "#D97706",
               fontWeight: 700,
-              height: 40,
+              height: 32,
               borderRadius: "999px",
-              fontSize: 14,
+              fontSize: 12,
               px: 2
             }}
           />
@@ -130,8 +114,8 @@ function ModeSelection({ onSelect, onBack }) {
               fontWeight: 800,
               color: "#071C3B",
               fontSize: {
-                xs: 36,
-                md: 48
+                xs: 32,
+                md: 40
               },
               lineHeight: 1.2,
               textAlign: "center"
@@ -144,7 +128,7 @@ function ModeSelection({ onSelect, onBack }) {
             sx={{
               fontFamily: "'Times New Roman', Times, serif",
               color: "#687588",
-              fontSize: 21,
+              fontSize: 17,
               textAlign: "center"
             }}
           >
@@ -161,7 +145,7 @@ function ModeSelection({ onSelect, onBack }) {
             justifyContent: "center",
             alignItems: "stretch",
             width: "100%",
-            maxWidth: 950,
+            maxWidth: 850,
             mx: "auto"
           }}
         >
@@ -170,9 +154,9 @@ function ModeSelection({ onSelect, onBack }) {
             sx={{
               flex: 1,
               width: "100%",
-              maxWidth: 430,
+              maxWidth: 380,
               mx: "auto",
-              p: 3.5,
+              p: 3,
               borderRadius: "30px",
               border: "3px solid #F5A000",
               display: "flex",
@@ -182,8 +166,8 @@ function ModeSelection({ onSelect, onBack }) {
           >
             <Box
               sx={{
-                width: 74,
-                height: 74,
+                width: 60,
+                height: 60,
                 borderRadius: "20px",
                 bgcolor: "#FFF2CC",
                 display: "flex",
@@ -193,7 +177,7 @@ function ModeSelection({ onSelect, onBack }) {
               }}
             >
               <TrackChangesOutlinedIcon
-                sx={{ fontSize: 38 }}
+                sx={{ fontSize: 32 }}
               />
             </Box>
 
@@ -204,14 +188,15 @@ function ModeSelection({ onSelect, onBack }) {
                 bgcolor: "#FFF0D2",
                 color: "#F39C12",
                 fontWeight: 700,
-                width: "fit-content"
+                width: "fit-content",
+                fontSize: 12
               }}
             />
 
             <Typography
               sx={{
                 mt: 2,
-                fontSize: 48,
+                fontSize: 36,
                 fontWeight: 800,
                 color: "#071C3B"
               }}
@@ -223,7 +208,7 @@ function ModeSelection({ onSelect, onBack }) {
               sx={{
                 mt: 2,
                 color: "#607085",
-                fontSize: 16,
+                fontSize: 14.5,
                 lineHeight: 1.8
               }}
             >
@@ -233,7 +218,7 @@ function ModeSelection({ onSelect, onBack }) {
 
             <Stack
               spacing={2}
-              mt={4}
+              mt={6}
               mb={4}
               sx={{ flexGrow: 1 }}
             >
@@ -257,7 +242,7 @@ function ModeSelection({ onSelect, onBack }) {
                   <Typography
                     sx={{
                       color: "#475569",
-                      fontSize: 16
+                      fontSize: 14.5
                     }}
                   >
                     {item}
@@ -273,11 +258,11 @@ function ModeSelection({ onSelect, onBack }) {
               sx={{
                 bgcolor: "#F39200",
                 color: "#fff",
-                height: 52,
+                height: 46,
                 borderRadius: "14px",
                 textTransform: "none",
                 fontWeight: 700,
-                fontSize: 16,
+                fontSize: 15,
                 "&:hover": {
                   bgcolor: "#E78600"
                 }
@@ -293,8 +278,8 @@ function ModeSelection({ onSelect, onBack }) {
               flex: 1,
               mx: "auto",
               width: "100%",
-              maxWidth: 430,
-              p: 3.5,
+              maxWidth: 380,
+              p: 3,
               borderRadius: "30px",
               border: "2px solid #DADDE4",
               display: "flex",
@@ -304,8 +289,8 @@ function ModeSelection({ onSelect, onBack }) {
           >
             <Box
               sx={{
-                width: 74,
-                height: 74,
+                width: 60,
+                height: 60,
                 borderRadius: "20px",
                 bgcolor: "#F3F4F6",
                 display: "flex",
@@ -315,7 +300,7 @@ function ModeSelection({ onSelect, onBack }) {
               }}
             >
               <ExploreOutlinedIcon
-                sx={{ fontSize: 38 }}
+                sx={{ fontSize: 32 }}
               />
             </Box>
 
@@ -326,14 +311,15 @@ function ModeSelection({ onSelect, onBack }) {
                 bgcolor: "#F3F4F6",
                 color: "#5E6B7B",
                 fontWeight: 700,
-                width: "fit-content"
+                width: "fit-content",
+                fontSize: 12
               }}
             />
 
             <Typography
               sx={{
                 mt: 2,
-                fontSize: 48,
+                fontSize: 36,
                 fontWeight: 800,
                 color: "#071C3B"
               }}
@@ -345,7 +331,7 @@ function ModeSelection({ onSelect, onBack }) {
               sx={{
                 mt: 2,
                 color: "#607085",
-                fontSize: 16,
+                fontSize: 14.5,
                 lineHeight: 1.8
               }}
             >
@@ -368,7 +354,8 @@ function ModeSelection({ onSelect, onBack }) {
                 sx={{
                   fontWeight: 700,
                   mb: 2.5,
-                  color: "#1F2A44"
+                  color: "#1F2A44",
+                  fontSize: 14
                 }}
               >
                 LUỒNG 2 BƯỚC:
@@ -381,27 +368,27 @@ function ModeSelection({ onSelect, onBack }) {
               >
                 <Box
                   sx={{
-                    width: 34,
-                    height: 34,
-                    flexShrink: 0,
+                    width: 28,
+                    height: 28,
                     borderRadius: "50%",
                     bgcolor: "#F39C12",
                     color: "#fff",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontWeight: 700
+                    fontWeight: 700,
+                    fontSize: 14
                   }}
                 >
                   1
                 </Box>
 
                 <Box>
-                  <Typography fontWeight={700}>
+                  <Typography fontWeight={700} fontSize={14.5}>
                     Test tính cách (15 câu)
                   </Typography>
 
-                  <Typography color="#667085">
+                  <Typography color="#667085" fontSize={13}>
                     AI phân tích và gợi ý nghề phù hợp
                   </Typography>
                 </Box>
@@ -410,27 +397,27 @@ function ModeSelection({ onSelect, onBack }) {
               <Stack direction="row" spacing={2}>
                 <Box
                   sx={{
-                    width: 34,
-                    height: 34,
-                    flexShrink: 0,
+                    width: 28,
+                    height: 28,
                     borderRadius: "50%",
                     bgcolor: "#7B8494",
                     color: "#fff",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontWeight: 700
+                    fontWeight: 700,
+                    fontSize: 14
                   }}
                 >
                   2
                 </Box>
 
                 <Box>
-                  <Typography fontWeight={700}>
+                  <Typography fontWeight={700} fontSize={14.5}>
                     Đánh giá mức độ phù hợp (15 câu)
                   </Typography>
 
-                  <Typography color="#667085">
+                  <Typography color="#667085" fontSize={13}>
                     Kiểm tra chi tiết với nghề được đề xuất
                   </Typography>
                 </Box>
@@ -444,11 +431,11 @@ function ModeSelection({ onSelect, onBack }) {
               sx={{
                 bgcolor: "#1F2A44",
                 color: "#fff",
-                height: 52,
+                height: 46,
                 borderRadius: "14px",
                 textTransform: "none",
                 fontWeight: 700,
-                fontSize: 16,
+                fontSize: 15,
                 "&:hover": {
                   bgcolor: "#172033"
                 }

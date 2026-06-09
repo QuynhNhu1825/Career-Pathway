@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -180,7 +180,9 @@ export default function PersonalityTest({ onBack, onComplete }) {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     } else {
-      onBack(); // Quay lại trang chọn chế độ nếu đang ở câu đầu tiên
+      if (onBack) {
+        onBack(); // Quay lại trang chọn chế độ nếu đang ở câu đầu tiên
+      }
     }
   };
 
