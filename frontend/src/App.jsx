@@ -1,12 +1,13 @@
-
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import ModeSelection from './client/components/ModeSelection';
-import PersonalInfo from './client/components/PersonalInfo';
-import ResultPage from './client/components/ResultPage';
-import Test from './client/components/Test';
-import AuthModal from './client/components/AuthModel';
+import React from 'react';
+import ModeSelection from './client/pages/ModeSelection';
+import PersonalInfo from './client/pages/PersonalInfo';
+import ResultPage from './client/pages/ResultPage';
+import Test from './client/pages/Test';
+import AuthModal from './client/pages/AuthModel';
+
 function App() {
   const [mode, setMode] = useState(null);
   const [step, setStep] = useState('modeSelection'); // State để quản lý các bước
@@ -14,8 +15,6 @@ function App() {
   const [testResult, setTestResult] = useState(null); // State để lưu kết quả test
   const [openAuth, setOpenAuth] = useState(false); // 2. State quản lý đóng/mở Popup (mặc định là đóng - false)
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Thêm state quản lý trạng thái đăng nhập
-
-  
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/test")
