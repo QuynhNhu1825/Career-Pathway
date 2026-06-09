@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
@@ -6,6 +7,17 @@ import ModeSelection from './client/components/ModeSelection';
 import Test from './client/components/Test';
 import AuthModal from './client/components/AuthModel';
 
+=======
+
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import './App.css'
+import ModeSelection from './client/pages/ModeSelection';
+import PersonalInfo from './client/pages/PersonalInfo';
+import ResultPage from './client/pages/ResultPage';
+import Test from './client/pages/Test';
+import AuthModal from './client/pages/AuthModel';
+>>>>>>> Stashed changes
 function App() {
   const [mode, setMode] = useState(null);
   const [openAuth, setOpenAuth] = useState(false); // 2. State quản lý đóng/mở Popup (mặc định là đóng - false)
