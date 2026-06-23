@@ -120,7 +120,7 @@ const skillDetails = [
   <Box>
     <Typography
       sx={{
-        fontSize: "32px",
+        fontSize: "30px",
         fontWeight: 800,
         lineHeight: 1,
         mb: 0.5,
@@ -175,149 +175,242 @@ const skillDetails = [
         }}
       >
         <CardContent>
-          <Box display="flex" gap={4}>
-            <Box minWidth={180}>
-              <Typography
-                sx={{
-                  fontSize: 90,
-                  fontWeight: 700,
-                  color: "#dc2626",
-                  lineHeight: 1,
-                }}
-              >
-                {score}%
-              </Typography>
+  <Box
+    sx={{
+      display: "flex",
+      alignItems: "center",
+      gap: 4,
+    }}
+  >
+    {/* BÊN TRÁI */}
+    <Box
+      sx={{
+        width: 180,
+        textAlign: "center",
+        flexShrink: 0,
+      }}
+    >
+      <Typography
+        sx={{
+          fontSize: 90,
+          fontWeight: 700,
+          color: "#d97706",
+          lineHeight: 1,
+        }}
+      >
+        {score}%
+      </Typography>
 
-              <Typography
-                color="#b91c1c"
-                fontWeight={600}
-                fontSize={26}
-              >
-                Cần cân nhắc
-              </Typography>
-            </Box>
+      <Typography
+        sx={{
+          fontSize: 28,
+          fontWeight: 700,
+          color: "#d97706",
+          mt: 1,
+        }}
+      >
+        Khá phù hợp
+      </Typography>
+    </Box>
 
-            <Box flex={1}>
-              <Typography
-                fontSize={22}
-                fontWeight={700}
-                gutterBottom
-              >
-                Mức độ phù hợp với ngành{" "}
-                <span style={{ color: "#d97706" }}>
-                  {personalData?.targetCareer}
-                </span>
-              </Typography>
+    {/* BÊN PHẢI */}
+    <Box sx={{ flex: 1 }}>
+      <Typography
+        sx={{
+          fontSize: 32,
+          fontWeight: 700,
+          mb: 1,
+        }}
+      >
+        Mức độ phù hợp với ngành{" "}
+        <span style={{ color: "#d97706" }}>
+          {personalData?.targetCareer}
+        </span>
+      </Typography>
 
-             <Typography mb={3}>
-              Dựa trên bài test tính cách và bài đánh giá chuyên sâu,
-              AI phân tích 6 chiều năng lực của bạn với yêu cầu của ngành{" "}
-                <b>{personalData?.targetCareer}</b>.
-            </Typography>
+      <Typography sx={{ mb: 3 }}>
+        Dựa trên bài test tính cách và bài đánh giá chuyên sâu,
+        AI phân tích 6 chiều năng lực của bạn với yêu cầu của ngành{" "}
+        <b>{personalData?.targetCareer}</b>.
+      </Typography>
 
-              <LinearProgress
-                variant="determinate"
-                value={score}
-                sx={{
-                  height: 16,
-                  borderRadius: 10,
-                  mb: 2,
-                  backgroundColor: "#e5e7eb",
-                  "& .MuiLinearProgress-bar": {
-                    background:
-                      "linear-gradient(90deg,#ef4444,#f59e0b)",
-                    borderRadius: 10,
-                  },
+      <LinearProgress
+        variant="determinate"
+        value={score}
+        sx={{
+          height: 14,
+          borderRadius: 10,
+          backgroundColor: "#e5e7eb",
+          "& .MuiLinearProgress-bar": {
+            backgroundColor: "#f59e0b",
+            borderRadius: 10,
+          },
+        }}
+      />
+    </Box>
+  </Box>
+</CardContent>
+      </Card>
+
+        
+      {/* BIỂU ĐỒ RADAR */}
+      <Grid
+        container
+        spacing={3}
+        sx={{
+          width: "100%",
+          mb: 4,
+          alignItems: "stretch",
+        }}
+      >
+      <Grid size={{ xs: 12, md: 6 }}>
+      <Card
+      sx={{
+        borderRadius: 4,
+        height: 440,
+      }}
+    >
+      <CardContent sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+        <Typography
+          sx={{
+            fontSize: 22,
+            fontWeight: 700,
+            mb: 4,
+          }}
+        >
+          Biểu đồ phân tích năng lực
+        </Typography>
+
+        <Box
+          sx={{
+            width: "100%",
+            height: 330,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+        <ResponsiveContainer width="100%" height="100%">
+            <RadarChart
+              cx="50%"
+              cy="50%"
+              outerRadius="75%"
+              data={radarData}
+            >
+              <PolarGrid />
+
+              <PolarAngleAxis
+              dataKey="subject"
+              tick={{
+                fontSize: 12,
+                fontWeight: 600,
+              }}
+              />
+
+              <PolarRadiusAxis
+                domain={[0, 100]}
+                tick={{
+                  fontSize: 14,
                 }}
               />
 
-              <Typography color="text.secondary">
-                Sắp có kết quả chi tiết cho bạn...
-              </Typography>
-            </Box>
-          </Box>
-        </CardContent>
-      </Card>
-
-      {/* BIỂU ĐỒ */}
-<Card sx={{ borderRadius: 4, mb: 3 }}>
-  <CardContent>
-    <Typography fontWeight={700} fontSize={24} mb={3}>
-      Biểu đồ phân tích năng lực
-    </Typography>
-
-    <Box sx={{ width: "100%", height: 450, margin: "0 auto" }}>
-      <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="65%" data={radarData}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis domain={[0, 100]} />
-          <Radar
-            dataKey="value"
-            stroke="#f59e0b"
-            fill="#fbbf24"
-            fillOpacity={0.4}
-          />
-        </RadarChart>
-      </ResponsiveContainer>
-    </Box>
-  </CardContent>
-</Card>
-
-{/* CHI TIẾT TỪNG CHIỀU */}
-<Card sx={{ borderRadius: 4, mb: 3 }}>
-  <CardContent>
-    <Typography sx={{
-    fontSize: "24px",
-    fontWeight: 600,
-    color: "#0f172a",
-    mb: 4,
-  }} >
-      Chi tiết từng chiều
-    </Typography>
-
-    {skillDetails.map((skill) => (
-      <Box key={skill.name} mb={3}>
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          mb={1}
-        >
-          <Typography>{skill.name}</Typography>
-
-          <Typography
-            fontWeight={700}
-            color={
-              skill.score >= 70
-                ? "success.main"
-                : "error.main"
-            }
-          >
-            {skill.score}
-          </Typography>
+              <Radar
+                dataKey="value"
+                stroke="#f59e0b"
+                fill="#fbbf24"
+                fillOpacity={0.45}
+              />
+            </RadarChart>
+          </ResponsiveContainer>
         </Box>
+      </CardContent>
+    </Card>
+  </Grid>
 
-        <LinearProgress
-          variant="determinate"
-          value={skill.score}
-          sx={{
-            height: 12,
-            borderRadius: 10,
-            backgroundColor: "#e5e7eb",
+  {/* CHI TIẾT TỪNG CHIỀU */}
+  <Grid size={{ xs: 12, md: 6 }}>
+      <Card
+      sx={{
+        borderRadius: 4,
+        height: 440,
+      }}
+    >
+            <CardContent
+        sx={{
+          p: 4,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
 
-            "& .MuiLinearProgress-bar": {
-              backgroundColor:
-                skill.score >= 70
-                  ? "#22c55e"
-                  : "#ef4444",
-            },
-          }}
-        />
-      </Box>
-    ))}
-  </CardContent>
-</Card>
+        <Typography
+        sx={{
+          fontSize: 22,
+          fontWeight: 700,
+          mb: 4,
+        }}
+      >
+        Chi tiết từng chiều
+      </Typography>
 
+        {skillDetails.map((skill) => (
+  <Box key={skill.name} sx={{ mb: 1.5 }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: "100%",
+        mb: 0.5,
+      }}
+    >
+      <Typography
+        sx={{
+          fontSize: 18,
+          fontWeight: 500,
+        }}
+      >
+        {skill.name}
+      </Typography>
+
+      <Typography
+        sx={{
+          fontSize: 18,
+          fontWeight: 700,
+          color:
+            skill.score >= 70
+              ? "#22c55e"
+              : "#ef4444",
+        }}
+      >
+        {skill.score}
+      </Typography>
+    </Box>
+
+    <LinearProgress
+      variant="determinate"
+      value={skill.score}
+      sx={{
+        height: 8,
+        borderRadius: 999,
+        backgroundColor: "#e5e7eb",
+
+        "& .MuiLinearProgress-bar": {
+          borderRadius: 999,
+          backgroundColor:
+            skill.score >= 70
+              ? "#22c55e"
+              : "#ef4444",
+        },
+      }}
+    />
+  </Box>
+))}
+      </CardContent>
+    </Card>
+  </Grid>
+</Grid>
 {/* ĐIỂM MẠNH & CẦN PHÁT TRIỂN */}
 <Card sx={{ borderRadius: 4, mb: 4 }}>
   <CardContent>
@@ -448,29 +541,55 @@ const skillDetails = [
 <Card sx={{ borderRadius: 4, mb: 3 }}>
   <CardContent>
     <Box
-      display="flex"
-      justifyContent="space-between"
-      mb={3}
+  sx={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    mb: 3,
+  }}
+>
+  <Box
+    sx={{
+      display: "flex",
+      alignItems: "center",
+      gap: 1,
+    }}
+  >
+    <PsychologyIcon
+      color="warning"
+      sx={{ fontSize: 30 }}
+    />
+
+    <Typography
+      sx={{
+        fontSize: "24px",
+        fontWeight: 700,
+      }}
     >
-      <Box display="flex" gap={1}>
-        <PsychologyIcon color="warning" />
+      Phân tích AI
+    </Typography>
+  </Box>
+
+  <Chip
+    label="Deep-scan AI"
+    color="warning"
+    variant="outlined"
+    sx={{
+      fontSize: "14px",
+      fontWeight: 600,
+      px: 1,
+      height: 36,
+    }}
+  />
+</Box>
 
         <Typography
-          fontWeight={700}
-          fontSize={24}
-        >
-          Phân tích AI
-        </Typography>
-      </Box>
-
-      <Chip
-        label="Deep-scan AI"
-        color="warning"
-        variant="outlined"
-      />
-    </Box>
-
-    <Typography paragraph>
+        paragraph
+        sx={{
+          fontSize: "18px",
+          lineHeight: 1.8,
+        }}
+      >
       Dựa trên kết quả đánh giá,
       <b> {personalData?.fullName} </b>
       thể hiện năng lực nổi bật về
@@ -481,7 +600,12 @@ const skillDetails = [
           <b> {personalData?.targetCareer} </b>.
     </Typography>
 
-    <Typography>
+        <Typography
+      sx={{
+        fontSize: "18px",
+        lineHeight: 1.8,
+      }}
+    >
       Điểm match
       <b style={{ color: "#f59e0b" }}>
         {" "}95%
@@ -636,6 +760,6 @@ const skillDetails = [
       </Box>
     </Box>
   );
-}
+}s
 
 export default ResultPage;
